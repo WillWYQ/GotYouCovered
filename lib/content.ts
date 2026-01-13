@@ -70,7 +70,7 @@ export const siteContent = {
           "Switches fire billions of times per second.",
           "Great switches mean strong ON current and tiny leakage."
         ],
-        badge: { tone: "e", label: "Helper: Gate = switch handle" }
+        badge: { tone: "e" as const, label: "Helper: Gate = switch handle" }
       }
     },
     planar: {
@@ -96,7 +96,7 @@ export const siteContent = {
         "As channels shortened, the gate couldn’t pinch the channel fully. Leakage rose, wasting power like a dripping faucet.",
         "Engineers needed more gate surface on the channel—wrap-around control—to tame leakage and keep scaling."
       ],
-      callout: { tone: "h", label: "Idea: hug the channel from more sides" },
+      callout: { tone: "h" as const, label: "Idea: hug the channel from more sides" },
       visualNote:
         "Slider placeholder — Transistor Size: Large (no leak) → Tiny (leak)."
     },
@@ -109,7 +109,7 @@ export const siteContent = {
         "The channel stands vertically like a fin. A U-shaped gate wraps three faces, boosting electrostatic control and cutting leakage.",
         "Multiple fins under one gate add drive strength—like extra lanes for current."
       ],
-      // chips: ["Slider: Number of Fins (1 → 3)", "Toggle gate OFF / ON"],
+      chips: ["Slider: Number of Fins (1 → 3)", "Toggle gate OFF / ON"],
       takeaways: {
         title: "Key Takeaways",
         items: [

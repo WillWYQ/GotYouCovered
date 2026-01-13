@@ -598,6 +598,7 @@ export function initMosfetViewer(options: ViewerOptions = {}): ViewerInstance["d
   }
 
   function handleResize() {
+    if (!container) return;
     const nextWidth = container.clientWidth || width;
     const nextHeight = container.clientHeight || height;
     camera.aspect = nextWidth / nextHeight;
@@ -609,6 +610,7 @@ export function initMosfetViewer(options: ViewerOptions = {}): ViewerInstance["d
   }
 
   function toggleFullscreen() {
+    if (!container) return;
     if (document.fullscreenElement === container) {
       document.exitFullscreen?.();
       return;
@@ -628,7 +630,7 @@ export function initMosfetViewer(options: ViewerOptions = {}): ViewerInstance["d
       scene.add(root);
 
       Object.keys(nodes).forEach((key) => {
-        nodes[key] = root.getObjectByName(key) ?? gltf.scene.getObjectByName(key);
+        nodes[key] = root.getObjectByName(key) ?? gltf.scene.getObjectByName(key) ?? null;
       });
 
       const required = [

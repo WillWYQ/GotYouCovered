@@ -486,8 +486,8 @@ export function initFinfetViewer(options: ViewerOptions = {}): FinfetViewerApi |
   }
 
   function handleResize() {
-    const nextWidth = container.clientWidth || width;
-    const nextHeight = container.clientHeight || height;
+    const nextWidth = container?.clientWidth || width;
+    const nextHeight = container?.clientHeight || height;
     camera.aspect = nextWidth / nextHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(nextWidth, nextHeight, false);
@@ -496,6 +496,7 @@ export function initFinfetViewer(options: ViewerOptions = {}): FinfetViewerApi |
   }
 
   function toggleFullscreen() {
+    if (!container) return;
     if (document.fullscreenElement === container) {
       document.exitFullscreen?.();
       return;

@@ -10,7 +10,7 @@ type PlaygroundProps = {
 
 export function Playground({ content }: PlaygroundProps) {
   useEffect(() => {
-    let dispose: (() => void) | undefined;
+    let dispose: (() => void) | null = null;
     import("@/lib/mosfetViewer")
       .then((mod) => {
         const init = mod.initMosfetViewer as typeof InitMosfetViewer;
