@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Kode_Mono, Inter } from "next/font/google";
+import { Kode_Mono } from "next/font/google";
 import { siteContent } from "@/lib/content";
 import "./globals.css";
 
-const sans = Inter({
+const sans = Kode_Mono({
   subsets: ["latin"],
-  variable: "--font-sans"
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+  adjustFontFallback: false,
+  fallback: ["monospace"]
 });
 
 const display = Kode_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   adjustFontFallback: false,
   fallback: ["monospace"]
@@ -17,6 +21,7 @@ const display = Kode_Mono({
 
 const mono = Kode_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-mono",
   adjustFontFallback: false,
   fallback: ["monospace"]
@@ -33,10 +38,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${sans.variable} ${display.variable} ${mono.variable} bg-bg text-fg antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${sans.variable} ${display.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="bg-bg text-fg antialiased font-sans">
         {children}
       </body>
     </html>
